@@ -1,33 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Top AI Use Cases in Manufacturing</title>
+  <title>Top AI Use Cases in Manufacturing | grow10X</title>
   <meta property="og:site_name" content="grow10x">
   <meta property="og:url" content="https://growtenx.in">
-<meta property="og:image" content="https://growtenx.in/grow10x-logo.png">
+  <meta property="og:image" content="https://growtenx.in/grow10x-logo.png">
   <meta name="description" content="grow10x - Data & AI Innovations">
   <link rel="canonical" href="https://growtenx.in/manufacturing-usecases.html">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; margin: 0; background: #f8fafc; color: #1e293b; animation: fadeIn 1s ease-in; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, #00d4ff, #0099cc);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .usecase { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.75rem; box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-    .usecase:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-    .usecase h3 { font-size: 1.2rem; color: #0f172a; margin-bottom: 0.8rem; }
-    .usecase h4 { font-size: 1rem; margin: 0.5rem 0 0.3rem; color: #0ea5e9; }
-    .usecase p { font-size: 0.95rem; color: #475569; margin-bottom: 0.8rem; }
-    .feedback { margin-top: auto; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 1rem; }
-    .feedback span { margin-right: 0.5rem; color: #64748b; font-size: 0.9rem; }
-    .feedback button { background: none; border: none; font-size: 1.2rem; margin: 0 0.3rem; cursor: pointer; color: #64748b; }
-    .feedback button:hover { transform: scale(1.2); color: #00bcd4; }
-    footer { background: #0f172a; color: white; text-align: center; padding: 2rem 0; margin-top: 4rem; }
+    :root{
+      --bg:#ffffff; --bg2:#eef4fc; --panel:#ffffff; --panel-brd:#e3e9f3;
+      --text:#142c52; --muted:#5d6e8c; --cyan:#2575e6; --indigo:#1f6fe0;
+      --violet:#1456bf; --navy:#172c52;
+      --grad:linear-gradient(120deg,#3f8ef0 0%,#1f6fe0 55%,#1456bf 100%);
+      --shadow:0 10px 30px rgba(20,44,82,.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navigation */
+    nav { background: rgba(255,255,255,.85); backdrop-filter: blur(14px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid var(--panel-brd); }
+    .nav-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: var(--navy); text-decoration: none; font-weight: 500; transition: color .3s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--indigo); }
+
+    /* Page header */
+    .page-header { padding: 8rem 0 4rem; text-align: center; background: linear-gradient(135deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--panel-brd); }
+    .eyebrow { display:inline-block; font-size:.78rem; letter-spacing:.25em; text-transform:uppercase; color:var(--cyan); font-weight:600; margin-bottom:16px; }
+    .page-title { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-subtitle { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin: 0 auto; }
+
+    /* Card grid — same system as the homepage "Ready-to-deploy Agents" cards */
+    .main-content { padding: 5rem 0; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .card { background: var(--panel); border: 1px solid var(--panel-brd); border-radius: 20px; padding: 32px; transition: .3s; position: relative; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .card::after { content:""; position:absolute; inset:0; border-radius:20px; padding:1.5px; background:var(--grad); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:.3s; pointer-events:none; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(20,44,82,.14); }
+    .card:hover::after { opacity: 1; }
+    .card .ico { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgba(63,142,240,.16), rgba(20,86,191,.14)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; border: 1px solid rgba(37,117,230,.18); }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--navy); }
+    .card .label { display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color: var(--indigo); margin: 14px 0 6px; }
+    .card .label:first-of-type { margin-top: 0; }
+    .card p { color: var(--muted); font-size: .95rem; }
+    .feedback { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--panel-brd); display: flex; align-items: center; justify-content: center; }
+    .feedback span { margin-right: .6rem; color: var(--muted); font-size: .85rem; }
+    .feedback button { background: none; border: none; font-size: 1.05rem; margin: 0 .3rem; cursor: pointer; color: var(--muted); transition: .2s; }
+    .feedback button:hover { transform: scale(1.15); color: var(--indigo); }
+
+    .cta { text-align: center; margin-top: 4rem; }
+    .cta p { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .cta-button { background: var(--grad); color: #fff; padding: .85rem 1.9rem; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; font-weight: 600; transition: .3s ease; display: inline-block; box-shadow: 0 10px 30px rgba(31,111,224,.28); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(31,111,224,.4); }
+
+    /* Back button */
+    .back-button { position: fixed; top: 50%; left: 2rem; transform: translateY(-50%); background: var(--grad); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(31,111,224,.3); transition: .3s ease; z-index: 999; }
+    .back-button:hover { transform: translateY(-50%) scale(1.1); }
+
+    footer { background: #f6f9fe; color: #9aa6bd; text-align: center; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid var(--panel-brd); }
+    footer a { color: var(--indigo); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .page-title { font-size: 2.2rem; }
+      .page-subtitle { font-size: 1.05rem; }
+      .nav-links { display: none; }
+      .back-button { position: static; margin: 1.5rem auto 0; transform: none; }
+      .back-button:hover { transform: scale(1.1); }
+    }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -35,123 +82,161 @@
   <link rel="stylesheet" href="theme.css">
 </head>
 <body>
+
+<nav>
+  <div class="container nav-content">
+    <a class="logo" href="index.html"><img src="grow10x-mark.png" alt="grow10X" style="height: 40px; width: auto;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="industry-agents.html" class="active">Industry Agents</a></li>
+      <li><a href="index.html#platform">Platform</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<a href="industry-agents.html" class="back-button" aria-label="Back to Industry Agents">
+  <i class="fas fa-arrow-left"></i>
+</a>
+
+<header class="page-header">
   <div class="container">
-    <h1>Top AI Use Cases in Manufacturing</h1>
-    <div class="grid">
-      
-<div class="usecase">
-  <h3>Predictive Maintenance</h3>
-  <h4>Description</h4>
-  <p>Detects machine failure risks using IoT and sensor data.</p>
-  <h4>Business Impact</h4>
-  <p>Reduces downtime and maintenance costs.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
+    <span class="eyebrow">Ready-to-deploy Agents</span>
+    <h1 class="page-title">Top AI Use Cases in Manufacturing</h1>
+    <p class="page-subtitle">Predictive maintenance, quality control, and inventory forecasting agents that boost efficiency — optimized for fast deployment and measurable impact.</p>
   </div>
-</div>
+</header>
 
+<section class="main-content">
+  <div class="container">
+    <div class="cards">
 
-<div class="usecase">
-  <h3>Quality Inspection via Vision</h3>
-  <h4>Description</h4>
-  <p>Automated defect detection using computer vision.</p>
-  <h4>Business Impact</h4>
-  <p>Improves quality control and reduces waste.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
+      <div class="card">
+        <div class="ico">🔧</div>
+        <h3>Predictive Maintenance</h3>
+        <span class="label">Description</span>
+        <p>Detects machine failure risks using IoT and sensor data.</p>
+        <span class="label">Business Impact</span>
+        <p>Reduces downtime and maintenance costs.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="ico">🔍</div>
+        <h3>Quality Inspection via Vision</h3>
+        <span class="label">Description</span>
+        <p>Automated defect detection using computer vision.</p>
+        <span class="label">Business Impact</span>
+        <p>Improves quality control and reduces waste.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
-<div class="usecase">
-  <h3>Inventory Demand Forecasting</h3>
-  <h4>Description</h4>
-  <p>Predicts inventory needs with past sales and seasonality.</p>
-  <h4>Business Impact</h4>
-  <p>Prevents stockouts and overstocking.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
+      <div class="card">
+        <div class="ico">📦</div>
+        <h3>Inventory Demand Forecasting</h3>
+        <span class="label">Description</span>
+        <p>Predicts inventory needs with past sales and seasonality.</p>
+        <span class="label">Business Impact</span>
+        <p>Prevents stockouts and overstocking.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="ico">🗓️</div>
+        <h3>Production Scheduling Optimization</h3>
+        <span class="label">Description</span>
+        <p>Uses AI to allocate resources efficiently in production lines.</p>
+        <span class="label">Business Impact</span>
+        <p>Improves throughput and OEE.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
-<div class="usecase">
-  <h3>Production Scheduling Optimization</h3>
-  <h4>Description</h4>
-  <p>Uses AI to allocate resources efficiently in production lines.</p>
-  <h4>Business Impact</h4>
-  <p>Improves throughput and OEE.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
+      <div class="card">
+        <div class="ico">⚡</div>
+        <h3>Energy Consumption Analytics</h3>
+        <span class="label">Description</span>
+        <p>Monitors real-time energy usage for optimization.</p>
+        <span class="label">Business Impact</span>
+        <p>Reduces utility costs and carbon footprint.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="ico">🚚</div>
+        <h3>Supply Chain Risk Detection</h3>
+        <span class="label">Description</span>
+        <p>Detects disruptions using external signals.</p>
+        <span class="label">Business Impact</span>
+        <p>Improves resilience and agility.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
-<div class="usecase">
-  <h3>Energy Consumption Analytics</h3>
-  <h4>Description</h4>
-  <p>Monitors real-time energy usage for optimization.</p>
-  <h4>Business Impact</h4>
-  <p>Reduces utility costs and carbon footprint.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
+      <div class="card">
+        <div class="ico">🚨</div>
+        <h3>Factory Floor Anomaly Alerts</h3>
+        <span class="label">Description</span>
+        <p>AI detects abnormal patterns in real-time operations.</p>
+        <span class="label">Business Impact</span>
+        <p>Enhances operator safety and compliance.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
-
-<div class="usecase">
-  <h3>Supply Chain Risk Detection</h3>
-  <h4>Description</h4>
-  <p>Detects disruptions using external signals.</p>
-  <h4>Business Impact</h4>
-  <p>Improves resilience and agility.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
-
-
-<div class="usecase">
-  <h3>Factory Floor Anomaly Alerts</h3>
-  <h4>Description</h4>
-  <p>AI detects abnormal patterns in real-time operations.</p>
-  <h4>Business Impact</h4>
-  <p>Enhances operator safety and compliance.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
-
-
-<div class="usecase">
-  <h3>Digital Twin Simulation</h3>
-  <h4>Description</h4>
-  <p>Simulates factory floor for testing process changes.</p>
-  <h4>Business Impact</h4>
-  <p>Reduces trial-and-error cost of optimization.</p>
-  <div class="feedback">
-    <span>Was this helpful?</span>
-    <button><i class="fa-regular fa-thumbs-up"></i></button>
-    <button><i class="fa-regular fa-thumbs-down"></i></button>
-  </div>
-</div>
+      <div class="card">
+        <div class="ico">🖥️</div>
+        <h3>Digital Twin Simulation</h3>
+        <span class="label">Description</span>
+        <p>Simulates factory floor for testing process changes.</p>
+        <span class="label">Business Impact</span>
+        <p>Reduces trial-and-error cost of optimization.</p>
+        <div class="feedback">
+          <span>Was this helpful?</span>
+          <button><i class="fa-regular fa-thumbs-up"></i></button>
+          <button><i class="fa-regular fa-thumbs-down"></i></button>
+        </div>
+      </div>
 
     </div>
+
+    <div class="cta">
+      <p>Looking for a domain-specific or custom-built AI agent?</p>
+      <a href="index.html#contact" class="cta-button">Request a Custom Agent</a>
+    </div>
   </div>
-  <footer>&copy; 2025 GROW10X. All rights reserved.</footer>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; 2026 GROW10X. All rights reserved.
+  </div>
+</footer>
+
 </body>
 </html>
