@@ -1,0 +1,57 @@
+/* AIPrism's stacked logo needs more vertical space than the previous wordmark. */
+.aiprism-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 1;
+  background: none;
+}
+.aiprism-logo img,
+.logo.aiprism-logo img,
+.foot .logo.aiprism-logo img {
+  display: block;
+  width: 128px;
+  height: 102px;
+  object-fit: contain;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.foot .logo.aiprism-logo img { width: 144px; height: 114px; }
+.nav:has(> .aiprism-logo) { height: 116px; }
+
+/* Keep secondary-page headings clear of the taller, fixed navigation. */
+body > nav:has(.aiprism-logo) { padding: 6px 0; }
+body:has(> nav .aiprism-logo) .page-header { padding-top: 160px; }
+body:has(> nav .aiprism-logo) .demo-section { padding-top: 160px; }
+
+/* A home link gives pages without existing navigation a consistent identity. */
+.brand-strip {
+  display: flex;
+  justify-content: center;
+  padding: 8px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e3e9f3;
+}
+.core.aiprism-core { background: #fff; }
+.aiprism-core img { display: block; width: 80px; height: 80px; object-fit: contain; }
+
+/* The longer identity must not collide with the homepage's navigation links. */
+@media (max-width: 1100px) {
+  #navlinks {
+    position: fixed;
+    inset: 116px 0 auto 0;
+    display: none;
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    background: rgba(255,255,255,.98);
+    border-bottom: 1px solid #e3e9f3;
+    box-shadow: 0 12px 24px rgba(20,44,82,.08);
+    max-height: calc(100dvh - 116px);
+    overflow-y: auto;
+  }
+  #navlinks.open { display: flex; }
+  #menuToggle { display: block; }
+}
