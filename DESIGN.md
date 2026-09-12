@@ -16,7 +16,7 @@ From the repository root:
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8765/`. The canonical domain, email addresses, and Web3Forms access key remain unchanged for the later domain migration.
+Open `http://127.0.0.1:8765/`. The canonical domain is `https://aiprismllp.com/`; see `DOMAIN-MIGRATION.md` for rollout status. Existing email addresses and the Web3Forms access key are retained.
 
 ## Interaction contracts
 
@@ -45,4 +45,4 @@ Axe scans of desktop, mobile, and dialog states found no WCAG A/AA violations. G
 
 These exceed the relevant [WCAG 2.2 contrast thresholds](https://www.w3.org/TR/WCAG22/#contrast-minimum). Reduced motion follows the [W3C guidance on animation from interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html). Automated checks and the listed manual checks do not constitute a complete accessibility conformance audit.
 
-Before publishing, confirm the new domain configuration, test real enquiry delivery, and configure compression and static-asset caching with the actual hosting provider.
+The redesigned site is deployed on Vercel. Domain migration status is tracked in `DOMAIN-MIGRATION.md`. Real enquiry delivery has not been tested; browser checks mock the form service to avoid sending unsolicited messages.
