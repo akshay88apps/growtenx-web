@@ -1,6 +1,6 @@
 # AIPrism landing page
 
-The redesigned homepage is a static, progressively enhanced page. No application framework, bundler, or client-side dependency is required. Supporting pages retain their existing layouts and the previously completed AIPrism rebranding.
+The redesigned homepage is a static, progressively enhanced page. No application framework, bundler, or client-side dependency is required. The six business-function use-case pages share the homepage’s dark visual language through `usecases.css`. Other supporting pages retain their existing layouts and the previously completed AIPrism rebranding.
 
 ## Files and local preview
 
@@ -46,3 +46,9 @@ Axe scans of desktop, mobile, and dialog states found no WCAG A/AA violations. G
 These exceed the relevant [WCAG 2.2 contrast thresholds](https://www.w3.org/TR/WCAG22/#contrast-minimum). Reduced motion follows the [W3C guidance on animation from interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html). Automated checks and the listed manual checks do not constitute a complete accessibility conformance audit.
 
 The redesigned site is deployed on Vercel. Domain migration status is tracked in `DOMAIN-MIGRATION.md`. Real enquiry delivery has not been tested; browser checks mock the form service to avoid sending unsolicited messages.
+
+## Business-function use-case pages
+
+Marketing, manufacturing, human resources, procurement, insurance, and customer service use `usecases.css`. Its palette, local Inter font, gradient headings, SVG line icons, cards, and buttons match the homepage. Each page has visible responsive navigation, a skip link, semantic use-case articles, a contact CTA, and navigation between the six functions. Legacy inline styles, light-theme overrides, external font/icon dependencies, and inactive feedback buttons were removed.
+
+All 50 use-case titles (apart from separate visual numbering), descriptions, and business-impact statements are retained. Checked all six pages at 320, 375, 768, 1024, and 1440 pixels: no horizontal overflow or JavaScript/resource errors. Axe A/AA scans at 375 and 1440 pixels found no violations. Verified local link targets, skip-link focus, and return navigation to the homepage.

@@ -9,236 +9,150 @@
   <meta property="og:image" content="https://aiprismllp.com/aiprism-social.png">
   <meta name="description" content="AIPrism - Data & AI Innovations">
   <link rel="canonical" href="https://aiprismllp.com/marketing-usecases.html">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#ffffff; --bg2:#eef4fc; --panel:#ffffff; --panel-brd:#e3e9f3;
-      --text:#142c52; --muted:#5d6e8c; --cyan:#2575e6; --indigo:#1f6fe0;
-      --violet:#1456bf; --navy:#172c52;
-      --grad:linear-gradient(120deg,#3f8ef0 0%,#1f6fe0 55%,#1456bf 100%);
-      --shadow:0 10px 30px rgba(20,44,82,.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); overflow-x: hidden; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-    /* Navigation */
-    nav { background: rgba(255,255,255,.85); backdrop-filter: blur(14px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid var(--panel-brd); }
-    .nav-content { display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { color: var(--navy); text-decoration: none; font-weight: 500; transition: color .3s ease; }
-    .nav-links a:hover, .nav-links a.active { color: var(--indigo); }
-
-    /* Page header */
-    .page-header { padding: 8rem 0 4rem; text-align: center; background: linear-gradient(135deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--panel-brd); }
-    .eyebrow { display:inline-block; font-size:.78rem; letter-spacing:.25em; text-transform:uppercase; color:var(--cyan); font-weight:600; margin-bottom:16px; }
-    .page-title { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .page-subtitle { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin: 0 auto; }
-
-    /* Card grid — same system as the homepage "Ready-to-deploy Agents" cards */
-    .main-content { padding: 5rem 0; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
-    .card { background: var(--panel); border: 1px solid var(--panel-brd); border-radius: 20px; padding: 32px; transition: .3s; position: relative; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
-    .card::after { content:""; position:absolute; inset:0; border-radius:20px; padding:1.5px; background:var(--grad); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:.3s; pointer-events:none; }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(20,44,82,.14); }
-    .card:hover::after { opacity: 1; }
-    .card .ico { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgba(63,142,240,.16), rgba(20,86,191,.14)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; border: 1px solid rgba(37,117,230,.18); }
-    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--navy); }
-    .card .label { display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color: var(--indigo); margin: 14px 0 6px; }
-    .card .label:first-of-type { margin-top: 0; }
-    .card p { color: var(--muted); font-size: .95rem; }
-    .feedback { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--panel-brd); display: flex; align-items: center; justify-content: center; }
-    .feedback span { margin-right: .6rem; color: var(--muted); font-size: .85rem; }
-    .feedback button { background: none; border: none; font-size: 1.05rem; margin: 0 .3rem; cursor: pointer; color: var(--muted); transition: .2s; }
-    .feedback button:hover { transform: scale(1.15); color: var(--indigo); }
-
-    .cta { text-align: center; margin-top: 4rem; }
-    .cta p { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .cta-button { background: var(--grad); color: #fff; padding: .85rem 1.9rem; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; font-weight: 600; transition: .3s ease; display: inline-block; box-shadow: 0 10px 30px rgba(31,111,224,.28); }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(31,111,224,.4); }
-
-    /* Back button */
-    .back-button { position: fixed; top: 50%; left: 2rem; transform: translateY(-50%); background: var(--grad); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(31,111,224,.3); transition: .3s ease; z-index: 999; }
-    .back-button:hover { transform: translateY(-50%) scale(1.1); }
-
-    footer { background: #f6f9fe; color: #9aa6bd; text-align: center; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid var(--panel-brd); }
-    footer a { color: var(--indigo); text-decoration: none; }
-
-    @media (max-width: 768px) {
-      .page-title { font-size: 2.2rem; }
-      .page-subtitle { font-size: 1.05rem; }
-      .nav-links { display: none; }
-      .back-button { position: static; margin: 1.5rem auto 0; transform: none; }
-      .back-button:hover { transform: scale(1.1); }
-    }
-  </style>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=aiprism">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=aiprism">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=aiprism">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=aiprism">
-  <link rel="stylesheet" href="theme.css">
-<link rel="stylesheet" href="branding.css">
 <meta property="og:image:alt" content="AIPrism Consulting LLP logo">
+
+  <meta name="theme-color" content="#080b12">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="usecases.css">
 </head>
 <body>
-
-<nav>
-  <div class="container nav-content">
-    <a class="logo aiprism-logo" href="index.html"><img src="aiprism-logo.png" alt="AIPrism Consulting LLP" width="640" height="508"></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="industry-agents.html" class="active">Industry Agents</a></li>
-      <li><a href="index.html#platform">Platform</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<a href="industry-agents.html" class="back-button" aria-label="Back to Industry Agents">
-  <i class="fas fa-arrow-left"></i>
-</a>
-
-<header class="page-header">
-  <div class="container">
-    <span class="eyebrow">Ready-to-deploy Agents</span>
-    <h1 class="page-title">Top AI Use Cases in Marketing &amp; Advertising</h1>
-    <p class="page-subtitle">Run targeted campaigns, personalize messaging, and automate copy generation with intelligent agent workflows — optimized for fast deployment and measurable impact.</p>
-  </div>
-</header>
-
-<section class="main-content">
-  <div class="container">
-    <div class="cards">
-
-      <div class="card">
-        <div class="ico">✍️</div>
+  <a class="skip-link" href="#main">Skip to content</a>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon-library"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="icon-spark" viewBox="0 0 24 24">
+          <path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4Z" />
+        </symbol>
+        <symbol id="icon-grid" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" />
+          <rect x="14" y="3" width="7" height="7" rx="1.5" />
+          <rect x="3" y="14" width="7" height="7" rx="1.5" />
+          <rect x="14" y="14" width="7" height="7" rx="1.5" />
+        </symbol>
+        <symbol id="icon-layers" viewBox="0 0 24 24">
+          <path d="m3 7 9-4 9 4-9 4Zm0 5 9 4 9-4M3 17l9 4 9-4" />
+        </symbol>
+        <symbol id="icon-compass" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="m16 8-2 6-6 2 2-6Z" />
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="icon-shield" viewBox="0 0 24 24">
+          <path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6Zm-4 9 3 3 5-6" />
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </symbol>
+      </defs>
+    </svg>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="index.html" class="brand" aria-label="AIPrism home"><picture><source srcset="aiprism-logo.webp" type="image/webp"><img src="aiprism-logo.png" alt="AIPrism Consulting LLP" width="640" height="508"></picture></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#services">Solutions</a>
+        <a href="index.html#platform">Platform</a>
+        <a href="index.html#contact" class="button button-small">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <a class="back-link" href="index.html#agents"><span aria-hidden="true">←</span> All AI agents</a>
+        <p class="eyebrow">Intelligent agents / Marketing &amp; advertising</p>
+        <h1 id="page-title">AI use cases for<br><span class="spectrum-text">Marketing &amp; advertising.</span></h1>
+        <p class="page-subtitle">Run targeted campaigns, personalize messaging, and automate copy generation with intelligent agent workflows — optimized for fast deployment and measurable impact.</p>
+        <div class="hero-meta"><span>08 USE CASES</span><span>Campaigns, content &amp; personalization</span></div>
+      </div>
+    </section>
+    <section class="usecases-section wrap" aria-labelledby="usecases-title">
+      <div class="section-heading"><div><p class="eyebrow">From possibility to practice</p><h2 id="usecases-title">Where AI can make a difference.</h2></div><span class="section-count">08 OPPORTUNITIES</span></div>
+      <div class="usecase-grid">
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">01</span></div>
         <h3>Personalized Content Generation</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Uses NLP to create unique marketing content tailored to specific personas, segments, or stages of the funnel.</p>
-        <span class="label">Business Impact</span>
-        <p>Drives higher engagement, reduces manual copywriting, and boosts conversion rates through relevance.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">🎯</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Drives higher engagement, reduces manual copywriting, and boosts conversion rates through relevance.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">02</span></div>
         <h3>Predictive Customer Segmentation</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Automatically groups customers based on behavior, preferences, and predicted lifetime value.</p>
-        <span class="label">Business Impact</span>
-        <p>Improves targeting efficiency, reduces churn, and enables personalized campaigns at scale.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">📧</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Improves targeting efficiency, reduces churn, and enables personalized campaigns at scale.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">03</span></div>
         <h3>Dynamic Email Subject Optimization</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Generates and tests multiple subject line variants using AI to maximize open rates.</p>
-        <span class="label">Business Impact</span>
-        <p>Boosts campaign performance and automates creative testing with minimal human effort.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">💬</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Boosts campaign performance and automates creative testing with minimal human effort.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">04</span></div>
         <h3>Chatbots for Lead Qualification</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Conversational bots qualify inbound traffic based on intent, interest, and readiness to buy.</p>
-        <span class="label">Business Impact</span>
-        <p>Improves MQL-to-SQL ratios and ensures 24/7 lead capture and routing.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">📊</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Improves MQL-to-SQL ratios and ensures 24/7 lead capture and routing.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">05</span></div>
         <h3>Real-Time Campaign Optimization</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Monitors campaign performance and auto-adjusts budgets or creatives in-flight based on KPIs.</p>
-        <span class="label">Business Impact</span>
-        <p>Improves ROI, reduces wasted spend, and increases agility in marketing operations.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">📝</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Improves ROI, reduces wasted spend, and increases agility in marketing operations.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">06</span></div>
         <h3>Ad Copy Generation</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Uses LLMs to generate platform-specific ad copy variations for Google, Meta, LinkedIn, etc.</p>
-        <span class="label">Business Impact</span>
-        <p>Saves creative time, enables faster A/B testing, and improves relevance across platforms.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">📡</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Saves creative time, enables faster A/B testing, and improves relevance across platforms.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">07</span></div>
         <h3>Brand Sentiment Monitoring</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Analyzes social and online conversations to track brand sentiment trends in real time.</p>
-        <span class="label">Business Impact</span>
-        <p>Helps mitigate PR risks, monitor competitor mentions, and shape messaging strategies.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="ico">🖼️</div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Helps mitigate PR risks, monitor competitor mentions, and shape messaging strategies.</p></div>
+      </article>
+      <article class="usecase-card">
+        <div class="card-top"><span class="icon-tile" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-spark"></use></svg></span><span class="card-number" aria-hidden="true">08</span></div>
         <h3>Visual Asset Tagging &amp; Categorization</h3>
-        <span class="label">Description</span>
+        <span class="label">The use case</span>
         <p>Uses computer vision to auto-tag product or campaign assets for easy reuse and search.</p>
-        <span class="label">Business Impact</span>
-        <p>Improves DAM (Digital Asset Management) efficiency and creative team productivity.</p>
-        <div class="feedback">
-          <span>Was this helpful?</span>
-          <button><i class="fa-regular fa-thumbs-up"></i></button>
-          <button><i class="fa-regular fa-thumbs-down"></i></button>
-        </div>
+        <div class="business-impact"><span class="label">Business impact</span><p>Improves DAM (Digital Asset Management) efficiency and creative team productivity.</p></div>
+      </article>
       </div>
-
-    </div>
-
-    <div class="cta">
-      <p>Looking for a domain-specific or custom-built AI agent?</p>
-      <a href="index.html#contact" class="cta-button">Request a Custom Agent</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    &copy; 2026 AIPrism Consulting LLP. All rights reserved.
-  </div>
-</footer>
-
+      <aside class="contact-panel" aria-labelledby="contact-title">
+        <div><p class="eyebrow">Your next step</p><h2 id="contact-title">Build around your business.</h2><p>Looking for a domain-specific or custom-built AI agent?</p></div>
+        <a href="index.html#contact" class="button">Request a custom agent <span aria-hidden="true">↗</span></a>
+      </aside>
+    </section>
+    <section class="domain-section wrap" aria-labelledby="domains-title">
+      <p class="eyebrow" id="domains-title">Explore other business functions</p>
+      <nav class="domain-links" aria-labelledby="domains-title">
+          <a href="marketing-usecases.html" aria-current="page">Marketing &amp; advertising</a>
+          <a href="manufacturing-usecases.html">Manufacturing</a>
+          <a href="human-resources-usecases.html">Human resources</a>
+          <a href="top10-procurement-usecases.html">Procurement</a>
+          <a href="insurance-usecases.html">Insurance</a>
+          <a href="customer-service-usecases.html">Customer service</a>
+      </nav>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-content"><p>© 2026 AIPrism Consulting LLP. All rights reserved.</p><nav aria-label="Legal"><a href="privacy-policy.html">Privacy policy</a><a href="terms-and-conditions.html">Terms &amp; conditions</a></nav></div></footer>
 </body>
 </html>
