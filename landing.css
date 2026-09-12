@@ -544,42 +544,40 @@ details[id] {
   background: #0c111a;
 }
 .ecosystem .wrap {
-  display: flex;
-  align-items: center;
-  gap: 44px;
+  display: block;
 }
 .ecosystem p {
   font-size: 10px;
-  max-width: 125px;
+  max-width: none;
+  text-align: center;
+  margin-bottom: 24px;
   line-height: 1.7;
 }
 .ecosystem ul {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: center;
-  justify-content: space-between;
   list-style: none;
-  gap: 28px;
-  flex: 1;
+  gap: 24px;
 }
 .ecosystem li {
-  position: relative;
-  color: #acb7c9;
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  color: #c7d2e4;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   white-space: nowrap;
 }
-.ecosystem li:nth-child(2) {
-  font-size: 25px;
-  letter-spacing: -1px;
-  line-height: 0.85;
-}
-.aws-smile {
-  position: absolute;
-  font-size: 24px;
-  left: 2px;
-  top: 8px;
-  color: #acb7c9;
+.ecosystem li img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  object-fit: contain;
 }
 /* Value proposition. */
 .value-grid {
@@ -1742,7 +1740,8 @@ details[id] {
     font-size: 13px;
   }
   .ecosystem ul {
-    gap: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
   }
   .value-card {
     padding: 26px 22px;
@@ -1902,8 +1901,6 @@ details[id] {
     margin-bottom: 24px;
   }
   .ecosystem ul {
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 24px 36px;
   }
   .section {
@@ -2170,17 +2167,17 @@ details[id] {
     font-size: 12px;
   }
   .ecosystem ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 26px 16px;
-    text-align: center;
   }
-  .ecosystem li:nth-child(2) {
-    font-size: 22px;
+  .ecosystem li {
+    justify-content: flex-start;
+    gap: 8px;
   }
-  .aws-smile {
-    left: calc(50% - 12px);
-    top: 6px;
+  .ecosystem li img {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
   }
   .ecosystem p {
     font-size: 10px;
