@@ -35,6 +35,14 @@ Replace the parked A values `76.223.105.230` and `13.248.243.5`, and the existin
 
 The sitemap lists the 16 current pages; the legacy `ai-platformold.html` remains accessible but is omitted from the sitemap. Existing email addresses remain until replacement mailboxes are verified.
 
+## Completed validation
+
+Migration commit `f36301b` was pushed to `main` and Vercel reported successful production deployments. All 17 HTML pages and 14 supporting assets/files (including the sitemap and robots file) matched the repository at the new HTTPS origin. Each of the three redirected domains returned 308 for both the homepage and a secondary page with a query string, preserving the full destination path and query.
+
+Browser checks at 375 and 1440 pixels passed without overflow or JavaScript errors. Navigation, service tabs, contextual enquiry selection, article dialogs, focus restoration, mocked form success/retry, reduced motion, and no-JavaScript fallbacks passed. Axe found no A/AA violations; gradient contrast remains covered by the prior palette review in `DESIGN.md`. No real enquiries were sent.
+
+These checks used the publicly verified Vercel DNS address explicitly because the local operating system still cached a GoDaddy parking address during rollout. TLS certificate validation remained enabled. Both authoritative nameservers, Cloudflare DNS, and Google DNS returned the correct apex records; no conflicting apex AAAA record was present. A cached parking page can persist until a visitor's DNS cache refreshes.
+
 ## Recovery
 
 If the new address fails, restore `www.growtenx.in` to serve the production deployment (remove its redirect), then restore `growtenx.in` → `www.growtenx.in`. Only redirect new-domain traffic to the old domain after removing old-to-new redirects, to prevent loops. Revert the migration commit if the page metadata also needs to return to the previous domain.
