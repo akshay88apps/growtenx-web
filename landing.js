@@ -239,7 +239,7 @@ function initContact() {
     if (!key || key === "YOUR_WEB3FORMS_ACCESS_KEY") {
       status.dataset.state = "error";
       status.textContent =
-        "The form is temporarily unavailable. Please email support@growtenx.in.";
+        "The form is temporarily unavailable. Please try again shortly.";
       return;
     }
     submitting = true;
@@ -268,12 +268,8 @@ function initContact() {
       status.dataset.state = "error";
       status.textContent =
         error.name === "AbortError"
-          ? "The request took too long. Please try again or email "
-          : "We couldn’t send your enquiry. Please try again or email ";
-      const email = document.createElement("a");
-      email.href = "mailto:support@growtenx.in";
-      email.textContent = "support@growtenx.in";
-      status.append(email, ".");
+          ? "The request took too long. Your details are still here; please try again."
+          : "We couldn’t send your enquiry. Your details are still here; please try again shortly.";
     } finally {
       clearTimeout(timeout);
       submit.disabled = false;
